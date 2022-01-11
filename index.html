@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 1rem;
+            margin-top: 6rem;
+            padding: 2rem;
+
+        }
+
+        .date,
+        .day {
+            background-color: rgb(112, 104, 104);
+            font-size: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            padding: 0 3px;
+        }
+
+        #other-month {
+            background-color: rgba(112, 104, 104, 0.651);
+            color: thistle;
+        }
+
+        #days {
+            font-size: 2em;
+            margin-bottom: 1rem;
+            color: turquoise;
+        }
+
+        a {
+            display: inline;
+            width: 400px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="day day-1" id="days">S</div>
+        <div class="day day-2" id="days">S</div>
+        <div class="day day-3" id="days">T</div>
+        <div class="day day-4" id="days">W</div>
+        <div class="day day-5" id="days">T</div>
+        <div class="day day-6" id="days">F</div>
+        <div class="day day-7" id="days">S</div>
+        <div class="date" id="other-month">30</div>
+        <div class="date" id="other-month">31</div>
+        <div class="date">3</div>
+        <div class="date">4</div>
+        <div class="date">5</div>
+        <div class="date">6</div>
+        <div class="date">7</div>
+        <div class="date">8</div>
+        <div class="date">9</div>
+        <div class="date">10</div>
+        <div class="date">11</div>
+        <div class="date">12</div>
+        <div class="date">13</div>
+        <div class="date">14</div>
+        <div class="date">15</div>
+        <div class="date">16</div>
+        <div class="date">17</div>
+        <div class="date">18</div>
+        <div class="date">19</div>
+        <div class="date">20</div>
+        <div class="date">21</div>
+        <div class="date">22</div>
+        <div class="date">23</div>
+        <div class="date">24</div>
+        <div class="date">25</div>
+        <div class="date">26</div>
+        <div class="date">27</div>
+        <div class="date">28</div>
+        <div class="date">29</div>
+        <div class="date">30</div>
+
+        <div class="date" id="other-month">1</div>
+        <div class="date" id="other-month">2</div>
+        <div class="date" id="other-month">3</div>
+        <div class="date" id="other-month">4</div>
+    </div>
+
+    <script>
+        let day1 = document.querySelector(".day-1")
+
+        let day2 = document.querySelector(".day-2")
+        let day3 = document.querySelector(".day-3")
+        let day4 = document.querySelector(".day-4")
+        let day5 = document.querySelector(".day-5")
+        let day6 = document.querySelector(".day-6")
+        let day7 = document.querySelector(".day-7")
+
+        function myPromise(element, color, time) {
+            return new Promise((resolve, reject) => {
+
+                setInterval(() => {
+                    if (element) {
+                        element.style.color = color;
+                        resolve()
+                        console.log("changed")
+
+                    } else {
+                        reject();
+                    }
+                }, time);
+
+
+
+            })
+        }
+
+        myPromise(day1, "red", 1000)
+            .then(() => {
+                setInterval(() => {
+                    day2.style.color = "turquoise"
+                }, 10000);
+                myPromise(day2, "red", 1000)
+                    .then(() => {
+                        myPromise(day3, "red", 1000)
+                            .then(() => {
+                                myPromise(day4, "red", 1000)
+                                    .then(() => {
+                                        myPromise(day5, "red", 1000)
+                                            .then(() => {
+                                                myPromise(day6, "red", 1000)
+                                                    .then(() => {
+                                                        myPromise(day7, "red", 1000)
+                                                            .then()
+                                                    })
+                                            })
+                                    })
+                            })
+                    });
+            });
+
+        function randomColor() {
+            console.log("randomColor")
+        }
+    </script>
+
+
+</body>
+
+</html>
